@@ -36,3 +36,17 @@ Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk 
 - ├── repository/ # Akses data
 - ├── service/ # Business logic
 
+## Untuk Menjalankan Sistem
+- Pastikan Docker Engine tersedia dan dapat berjalan
+- Jalankan command:
+```bash
+git clone <repo>
+cd Fleet-Management-System
+docker-compose up -d --build
+```
+
+> Setelah build docker-compose, secara otomatis akan melakukan hal ini:
+> - Build binary backend, MQTT publisher, RabbitMQ worker
+> - Setup DB PostgreSQL dengan inisiasi struktur tabel dan populate data awal
+> - Setup MQTT Mosquitto
+> - Setup RabbitMQ
