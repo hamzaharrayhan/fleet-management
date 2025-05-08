@@ -1,0 +1,90 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    container_name: fleet-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - rabbitmq
+      - mqtt
+    networks:
+      - fleet_network
+    restart: always
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: fleetuser
+      POSTGRES_PASSWORD: fleetpass
+      POSTGRES_DB: fleetdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - fleet_network
+
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: fleet-mqtt
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    networks:
+      - fleet_network
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: fleet-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - fleet_network
+  
+  mqtt_publisher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: publisher
+    container_name: fleet-mqtt-publisher
+    depends_on:
+      - mqtt
+      - rabbitmq
+      - backend
+    networks:
+      - fleet_network
+    env_file:
+      - .env
+    restart: always
+  
+  geofence_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: worker
+    container_name: fleet-geofence-worker
+    depends_on:
+      - rabbitmq
+      - mqtt_publisher
+      - backend
+    networks:
+      - fleet_network
+    env_file:
+      - .env
+    restart: always
+
+networks:
+  fleet_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

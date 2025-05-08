@@ -26,13 +26,13 @@ Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk 
 ---
 
 ## Struktur Proyek
-internal/
-├── api/ # Routing
-├── client/ # Koneksi ke service eksternal (PostgreSQL, RabbitMQ, MQTT)
-├── config/ # Konfigurasi environment
-├── controller/ # Routing dan handler API
-├── dto/ # Data Transfer Object
-├── model/ # Struktur data
-├── repository/ # Akses data
-├── service/ # Business logic
+- internal/
+- ├── api/ # Routing
+- ├── client/ # Koneksi ke service eksternal (PostgreSQL, RabbitMQ, MQTT)
+- ├── config/ # Konfigurasi environment
+- ├── controller/ # Routing dan handler API
+- ├── dto/ # Data Transfer Object
+- ├── model/ # Struktur data
+- ├── repository/ # Akses data
+- ├── service/ # Business logic
 
