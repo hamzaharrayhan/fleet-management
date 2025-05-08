@@ -50,3 +50,19 @@ docker-compose up -d --build
 > - Setup DB PostgreSQL dengan inisiasi struktur tabel dan populate data awal
 > - Setup MQTT Mosquitto
 > - Setup RabbitMQ
+
+## Postman Collection
+
+- Untuk menguji endpoint, telah disediakan postman collection pada file `fleet-management-postman-collection.json`
+- Disediakan juga data vehicle berikut untuk diuji sebagai path variable pada API:
+    - B1001TJ
+    - B1002TJ
+    - B1003TJ
+    - B1004TJ
+    - B1005TJ
+
+### Cara Menjalankan:
+1. Buka Postman
+2. Import file `fleet-management-postman-collection.json`
+3. Pastikan environment base URL adalah `http://localhost:3000`
+4. Jalankan koleksi seperti `Get Latest Location`, atau `Get Location History by Time`
