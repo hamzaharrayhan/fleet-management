@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "e27273ab-57a7-41af-82d7-1385a906ebf8",
 		"name": "Fleet Management",
+		"description": "**Data vehicleid yang dapat digunakan sebagai path variable:**\n\n- **B1001TJ**\n    \n- **B1002TJ**\n    \n- **B1003TJ**\n    \n- **B1004TJ**\n    \n- **B1005TJ**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36296740"
 	},

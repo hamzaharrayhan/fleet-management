@@ -65,4 +65,5 @@ docker-compose up -d --build
 1. Buka Postman
 2. Import file `fleet-management-postman-collection.json`
 3. Pastikan environment base URL adalah `http://localhost:3000`
-4. Jalankan koleksi seperti `Get Latest Location`, atau `Get Location History by Time`
+4. Jalankan request `Get Latest Location` dan `Get Location History by Time`
+5. Pastikan Path Variable sudah terisi dengan data yang disediakan pada bagian sebelumnya
