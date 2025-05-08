@@ -1,6 +1,6 @@
 # TransJakarta Fleet Management System - Backend
 
-Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk memantau lokasi kendaraan secara real-time dan mendeteksi posisi armada terhadap dari titik dengan geofence, menggunakan arsitektur berbasis mikroservis dan teknologi messaging seperti RabbitMQ dan MQTT.
+Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk memantau lokasi kendaraan secara real-time dan mendeteksi posisi armada dari suatu titik lokasi dengan geofence, menggunakan arsitektur berbasis mikroservis dan teknologi messaging seperti RabbitMQ dan MQTT.
 
 ## Fitur Utama
 
@@ -8,7 +8,7 @@ Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk 
 - Deteksi masuk geofence secara otomatis
 - Komunikasi antar komponen via RabbitMQ
 - Penyimpanan data menggunakan PostgreSQL
-- Arsitektur bersih menggunakan Go dengan struktur modular (controller, service, repository, client, dto)
+- Clean code architecture menggunakan Go dengan struktur modular (controller, service, repository, client, dto)
 - Seluruh layanan dijalankan menggunakan Docker Compose
 
 ---
