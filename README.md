@@ -37,6 +37,8 @@ Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk 
 - ├── service/ # Business logic
 
 ## Untuk Menjalankan Sistem
+
+### 1. Menyiapkan Environment
 - Pastikan Docker Engine tersedia dan dapat berjalan
 - Jalankan command:
 ```bash
@@ -50,6 +52,26 @@ docker-compose up -d --build
 > - Setup DB PostgreSQL dengan inisiasi struktur tabel dan populate data awal
 > - Setup MQTT Mosquitto
 > - Setup RabbitMQ
+
+### 2. Cek Service
+- RabbitMQ UI: [http://localhost:15672] (user: `guest`, pass: `guest`)
+- API Endpoint: `http://localhost:8080/api/v1/vehicles/:id/location`
+- API Endpoint: `http://localhost:8080/api/v1/vehicles/:id/history?start=&end=`
+
+### 3. Kirim Simulasi Lokasi
+```bash
+docker logs -f fleet-mqtt-publisher
+```
+> Publisher akan mengirim data lokasi vehicle ke MQTT tiap 2 detik.
+
+### 4. Cek Worker Alert
+```bash
+docker logs -f fleet-geofence-worker
+```
+> Alert akan muncul sebagai log jika kendaraan masuk geofence.
+
+---
+
 
 ## Postman Collection
 
@@ -67,3 +89,4 @@ docker-compose up -d --build
 3. Pastikan environment base URL adalah `http://localhost:3000`
 4. Jalankan request `Get Latest Location` dan `Get Location History by Time`
 5. Pastikan Path Variable sudah terisi dengan data yang disediakan pada bagian sebelumnya
+
