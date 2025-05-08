@@ -69,7 +69,7 @@ docker logs -f fleet-mqtt-publisher
 docker logs -f fleet-geofence-worker
 ```
 > Alert akan muncul sebagai log jika kendaraan masuk geofence.
-> # Contoh Alert: fleet-geofence-worker | [GEOFENCE WORKER] | Received geofence event: {VehicleID:B1002TJ Event:geofence_entry Location:{Latitude:-6.208979 Longitude:106.845587} Timestamp:1746722578}
+> #### Contoh Alert: fleet-geofence-worker | [GEOFENCE WORKER] | Received geofence event: {VehicleID:B1002TJ Event:geofence_entry Location:{Latitude:-6.208979 Longitude:106.845587} Timestamp:1746722578}
 
 ---
 
