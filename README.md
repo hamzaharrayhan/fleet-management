@@ -40,7 +40,7 @@ Sistem Manajemen Armada TransJakarta adalah sistem backend yang dirancang untuk 
 - Pastikan Docker Engine tersedia dan dapat berjalan
 - Jalankan command:
 ```bash
-git clone <repo>
+git clone https://github.com/hamzaharrayhan/fleet-management
 cd fleet-management
 docker-compose up -d --build
 ```
